@@ -13,6 +13,9 @@ router.get('/', (req, res) => {
         }
         res.send(docs, 200)
     })
+    console.log(users, {
+        message: 'User found'
+    })
 
 })
 

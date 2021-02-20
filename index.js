@@ -8,8 +8,9 @@ require('dotenv').config()
 service.use(bodyParser.json())
 
 const PORT = process.env.PORT || 5000
+const connectMongoDB = process.env.MONGO_URL
 
-mongoose.connect('mongodb://localhost:27017/customer', {
+mongoose.connect(connectMongoDB , {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }).then(conn => {
