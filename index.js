@@ -2,10 +2,12 @@ const service = require('restana')()
 const bodyParser = require('body-parser')
 const UserRouter = require('./routes/user')
 const mongoose = require('mongoose')
+const logger = require('morgan')
 const http = require('http')
 require('dotenv').config()
 
 service.use(bodyParser.json())
+service.use(logger("dev"))
 
 const PORT = process.env.PORT || 5000
 const connectMongoDB = process.env.MONGO_URL

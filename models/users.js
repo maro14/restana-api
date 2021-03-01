@@ -5,9 +5,8 @@ const UsersSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    age: {
-        type: Number
-    }
+    age: Number,
+    address: String
 })
 
 const Users = mongoose.model('users', UsersSchema)
