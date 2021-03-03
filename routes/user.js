@@ -2,9 +2,6 @@ const service = require('restana')()
 const router = service.newRouter()
 const User = require('../models/users')
 
-router.get('/hello', (req, res) => {
-    res.send("Hello from router", 200)
-})
 
 router.get('/', (req, res) => {
     const users = User.find({}, (err, docs) => {
@@ -33,7 +30,11 @@ router.post('/', (req, res) => {
                 data: doc,
                 msg: 'User added...'
             }, 201)
-        })
+        }).catch((err) => {
+            res.send({
+                data: err
+            })
+    })
 })
 
 module.exports = router
